@@ -1,0 +1,1069 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TecnoShop - Especialistas en Tecnología</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --color-primario: #0056b3;
+            --color-secundario: #ff6b00;
+            --color-acento: #00a8e8;
+            --color-texto: #333333;
+            --color-fondo: #f8f9fa;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            color: var(--color-texto);
+            background-color: var(--color-fondo);
+        }
+        
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .navbar {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--color-primario) !important;
+            font-size: 1.8rem;
+        }
+        
+        .hero-section {
+            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('https://images.unsplash.com/photo-1518770660439-4636190af475?ixlib=rb-4.0.3');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            padding: 100px 0;
+        }
+        
+        .btn-primary {
+            background-color: var(--color-primario);
+            border-color: var(--color-primario);
+        }
+        
+        .btn-outline-primary {
+            color: var(--color-primario);
+            border-color: var(--color-primario);
+        }
+        
+        .btn-outline-primary:hover {
+            background-color: var(--color-primario);
+            color: white;
+        }
+        
+        .product-card {
+            transition: transform 0.3s, box-shadow 0.3s;
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        
+        .badge-discount {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: var(--color-secundario);
+            font-size: 0.8rem;
+        }
+        
+        .store-card {
+            border-left: 4px solid var(--color-primario);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            color: var(--color-primario);
+            margin-bottom: 1rem;
+        }
+        
+        footer {
+            background-color: var(--color-texto);
+            color: white;
+        }
+        
+        .social-icon {
+            font-size: 1.5rem;
+            margin-right: 15px;
+            color: white;
+            transition: color 0.3s;
+        }
+        
+        .social-icon:hover {
+            color: var(--color-acento);
+        }
+        
+        .nav-pills .nav-link.active {
+            background-color: var(--color-primario);
+        }
+        
+        .nav-pills .nav-link {
+            color: var(--color-primario);
+        }
+        
+        .tab-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 0 0 10px 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        .employee-card {
+            border: none;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+        
+        .employee-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .role-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+
+        .category-section {
+            margin-bottom: 50px;
+        }
+
+        .category-header {
+            border-bottom: 3px solid var(--color-primario);
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Barra de navegación -->
+    <nav class="navbar navbar-expand-lg sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <i class="fas fa-laptop-code me-2"></i>TecnoShop
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#productos">Productos</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#sucursales">Sucursales</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#equipo">Equipo</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                    <li class="nav-item ms-lg-3">
+                        <a class="btn btn-primary" href="#">
+                            <i class="fas fa-user me-1"></i> Área de Clientes
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Sección Hero -->
+    <section class="hero-section text-center" id="inicio">
+        <div class="container">
+            <h1 class="display-4 fw-bold mb-4">Tecnología de Vanguardia para tus Proyectos</h1>
+            <p class="lead mb-5">Más de 10,000 productos en computación y electrónica con garantía y soporte técnico especializado</p>
+            <div class="d-flex justify-content-center gap-3">
+                <a href="#productos" class="btn btn-primary btn-lg px-4">
+                    <i class="fas fa-shopping-cart me-2"></i>Ver Catálogo
+                </a>
+                <a href="#sucursales" class="btn btn-outline-light btn-lg px-4">
+                    <i class="fas fa-map-marker-alt me-2"></i>Encuéntranos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Productos -->
+    <section class="py-5 bg-white" id="productos">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Nuestro Catálogo de Productos</h2>
+                <p class="text-muted">Organizados por categorías para tu fácil búsqueda</p>
+            </div>
+
+            <!-- Categoría: Procesadores -->
+            <div class="category-section">
+                <div class="category-header">
+                    <h3><i class="fas fa-microchip me-2"></i> Procesadores</h3>
+                </div>
+                <div class="row g-4">
+                    <!-- Producto 1 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="product-card h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1591488320449-011701bb6704?ixlib=rb-4.0.3" class="card-img-top" alt="Procesador Intel">
+                                <span class="badge badge-discount">-10%</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">Intel Core i9-13900K</h5>
+                                    <div>
+                                        <span class="text-danger fw-bold">$589.99</span>
+                                        <small class="text-muted d-block text-decoration-line-through">$649.99</small>
+                                    </div>
+                                </div>
+                                <p class="card-text text-muted small">24 núcleos, 5.8GHz, 36MB cache</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-success">En stock</span>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 2 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="product-card h-100">
+                            <img src="https://images.unsplash.com/photo-1592155931584-901ac15763e3?ixlib=rb-4.0.3" class="card-img-top" alt="Procesador AMD">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">AMD Ryzen 9 7950X</h5>
+                                    <span class="text-primary fw-bold">$549.99</span>
+                                </div>
+                                <p class="card-text text-muted small">16 núcleos, 5.7GHz, 64MB cache</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-success">En stock</span>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 3 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="product-card h-100">
+                            <img src="https://images.unsplash.com/photo-1593642632823-8f785ba67e45?ixlib=rb-4.0.3" class="card-img-top" alt="Procesador Intel">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">Intel Core i7-13700K</h5>
+                                    <span class="text-primary fw-bold">$399.99</span>
+                                </div>
+                                <p class="card-text text-muted small">16 núcleos, 5.4GHz, 30MB cache</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-warning text-dark">Últimas unidades</span>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 4 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="product-card h-100">
+                            <img src="https://images.unsplash.com/photo-1540932239986-30128078f3c5?ixlib=rb-4.0.3" class="card-img-top" alt="Procesador AMD">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">AMD Ryzen 7 7700X</h5>
+                                    <span class="text-primary fw-bold">$349.99</span>
+                                </div>
+                                <p class="card-text text-muted small">8 núcleos, 5.4GHz, 32MB cache</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-success">En stock</span>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoría: Monitores -->
+            <div class="category-section">
+                <div class="category-header">
+                    <h3><i class="fas fa-desktop me-2"></i> Monitores</h3>
+                </div>
+                <div class="row g-4">
+                    <!-- Producto 1 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="product-card h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1540932239986-30128078f3c5?ixlib=rb-4.0.3" class="card-img-top" alt="Monitor 4K">
+                                <span class="badge badge-discount">-15%</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">Monitor 4K 32"</h5>
+                                    <div>
+                                        <span class="text-danger fw-bold">$499.99</span>
+                                        <small class="text-muted d-block text-decoration-line-through">$589.99</small>
+                                    </div>
+                                </div>
+                                <p class="card-text text-muted small">3840x2160, 144Hz, HDR, FreeSync Premium</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-success">En stock</span>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 2 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="product-card h-100">
+                            <img src="https://images.unsplash.com/photo-1551645120-d70bfe850c87?ixlib=rb-4.0.3" class="card-img-top" alt="Monitor Curvo">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">Monitor Curvo 34"</h5>
+                                    <span class="text-primary fw-bold">$699.99</span>
+                                </div>
+                                <p class="card-text text-muted small">3440x1440, 165Hz, 1500R, USB-C</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-success">En stock</span>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 3 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="product-card h-100">
+                            <img src="https://images.unsplash.com/photo-1547036967-23d11aacaee0?ixlib=rb-4.0.3" class="card-img-top" alt="Monitor Gaming">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">Monitor Gaming 27"</h5>
+                                    <span class="text-primary fw-bold">$329.99</span>
+                                </div>
+                                <p class="card-text text-muted small">2560x1440, 240Hz, 1ms, G-Sync</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-warning text-dark">Últimas unidades</span>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 4 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="product-card h-100">
+                            <img src="https://images.unsplash.com/photo-1551645120-5db809821dfb?ixlib=rb-4.0.3" class="card-img-top" alt="Monitor Profesional">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">Monitor Profesional 27"</h5>
+                                    <span class="text-primary fw-bold">$429.99</span>
+                                </div>
+                                <p class="card-text text-muted small">4K, 99% AdobeRGB, Pantalla IPS</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-success">En stock</span>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Categoría: Teclados y Mouse -->
+            <div class="category-section">
+                <div class="category-header">
+                    <h3><i class="fas fa-keyboard me-2"></i> Teclados y Mouse</h3>
+                </div>
+                <div class="row g-4">
+                    <!-- Producto 1 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="product-card h-100">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1587829741301-dc798b83add3?ixlib=rb-4.0.3" class="card-img-top" alt="Teclado Mecánico">
+                                <span class="badge badge-discount">-20%</span>
+                            </div>
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">Teclado Mecánico RGB</h5>
+                                    <div>
+                                        <span class="text-danger fw-bold">$89.99</span>
+                                        <small class="text-muted d-block text-decoration-line-through">$109.99</small>
+                                    </div>
+                                </div>
+                                <p class="card-text text-muted small">Switches Cherry MX, Retroiluminación, USB-C</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-warning text-dark">Últimas unidades</span>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 2 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="product-card h-100">
+                            <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?ixlib=rb-4.0.3" class="card-img-top" alt="Mouse Gaming">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">Mouse Gaming Pro</h5>
+                                    <span class="text-primary fw-bold">$59.99</span>
+                                </div>
+                                <p class="card-text text-muted small">25,600 DPI, 8 botones, RGB, inalámbrico</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-success">En stock</span>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 3 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="product-card h-100">
+                            <img src="https://images.unsplash.com/photo-1600080972464-8e5f35f63d08?ixlib=rb-4.0.3" class="card-img-top" alt="Teclado Inalámbrico">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">Teclado Inalámbrico</h5>
+                                    <span class="text-primary fw-bold">$49.99</span>
+                                </div>
+                                <p class="card-text text-muted small">Bluetooth, diseño ergonómico, 2 años batería</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-success">En stock</span>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Producto 4 -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="product-card h-100">
+                            <img src="https://images.unsplash.com/photo-1527814050087-3793815479db?ixlib=rb-4.0.3" class="card-img-top" alt="Mouse Ergonómico">
+                            <div class="card-body">
+                                <div class="d-flex justify-content-between align-items-start mb-2">
+                                    <h5 class="card-title mb-0">Mouse Ergonómico</h5>
+                                    <span class="text-primary fw-bold">$39.99</span>
+                                </div>
+                                <p class="card-text text-muted small">Diseño vertical, 6 botones, 3200 DPI</p>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <span class="badge bg-success">En stock</span>
+                                    <button class="btn btn-sm btn-outline-primary">
+                                        <i class="fas fa-cart-plus"></i> Añadir
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-outline-primary">
+                    <i class="fas fa-arrow-right me-2"></i>Ver todas las categorías
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Sucursales -->
+    <section class="py-5 bg-light" id="sucursales">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Nuestras Sucursales</h2>
+                <p class="text-muted">Encuentra nuestra tienda más cercana en todo el país</p>
+            </div>
+            
+            <div class="row g-4">
+                <!-- Sucursal 1 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card store-card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fas fa-store me-3 fs-4 text-primary"></i>
+                                <div>
+                                    <h5 class="card-title mb-1">TecnoShop Centro</h5>
+                                    <p class="card-text text-muted small mb-2">
+                                        <i class="fas fa-map-marker-alt me-1"></i> Av. Principal 123, Ciudad Capital
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="card-text">Nuestra tienda principal con el catálogo más completo y área de exhibición.</p>
+                            <ul class="list-group list-group-flush small mb-3">
+                                <li class="list-group-item d-flex justify-content-between align-items-center ps-0">
+                                    <span><i class="fas fa-phone me-2"></i> Teléfono</span>
+                                    <span>555-1234</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center ps-0">
+                                    <span><i class="fas fa-clock me-2"></i> Horario</span>
+                                    <span>L-D 9AM-9PM</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center ps-0">
+                                    <span><i class="fas fa-wifi me-2"></i> Servicios</span>
+                                    <span>Reparación, Pickup</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="btn btn-sm btn-outline-primary w-100">
+                                <i class="fas fa-directions me-1"></i> Cómo llegar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sucursal 2 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card store-card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fas fa-store me-3 fs-4 text-primary"></i>
+                                <div>
+                                    <h5 class="card-title mb-1">TecnoShop Norte</h5>
+                                    <p class="card-text text-muted small mb-2">
+                                        <i class="fas fa-map-marker-alt me-1"></i> Plaza Norte, Local 45, Zona Norte
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="card-text">Especializada en equipos empresariales y soluciones corporativas.</p>
+                            <ul class="list-group list-group-flush small mb-3">
+                                <li class="list-group-item d-flex justify-content-between align-items-center ps-0">
+                                    <span><i class="fas fa-phone me-2"></i> Teléfono</span>
+                                    <span>555-5678</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center ps-0">
+                                    <span><i class="fas fa-clock me-2"></i> Horario</span>
+                                    <span>L-S 10AM-8PM</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center ps-0">
+                                    <span><i class="fas fa-wifi me-2"></i> Servicios</span>
+                                    <span>Consultoría, Empresas</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="btn btn-sm btn-outline-primary w-100">
+                                <i class="fas fa-directions me-1"></i> Cómo llegar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Sucursal 3 -->
+                <div class="col-md-6 col-lg-4">
+                    <div class="card store-card h-100">
+                        <div class="card-body">
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fas fa-store me-3 fs-4 text-primary"></i>
+                                <div>
+                                    <h5 class="card-title mb-1">TecnoShop Costa</h5>
+                                    <p class="card-text text-muted small mb-2">
+                                        <i class="fas fa-map-marker-alt me-1"></i> Centro Comercial Costa Azul, Local 12
+                                    </p>
+                                </div>
+                            </div>
+                            <p class="card-text">Enfoque en productos para creadores de contenido y diseño gráfico.</p>
+                            <ul class="list-group list-group-flush small mb-3">
+                                <li class="list-group-item d-flex justify-content-between align-items-center ps-0">
+                                    <span><i class="fas fa-phone me-2"></i> Teléfono</span>
+                                    <span>555-9012</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center ps-0">
+                                    <span><i class="fas fa-clock me-2"></i> Horario</span>
+                                    <span>L-D 10AM-10PM</span>
+                                </li>
+                                <li class="list-group-item d-flex justify-content-between align-items-center ps-0">
+                                    <span><i class="fas fa-wifi me-2"></i> Servicios</span>
+                                    <span>Talleres, Demos</span>
+                                </li>
+                            </ul>
+                            <a href="#" class="btn btn-sm btn-outline-primary w-100">
+                                <i class="fas fa-directions me-1"></i> Cómo llegar
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-4">
+                <a href="#" class="btn btn-primary">
+                    <i class="fas fa-map-marked-alt me-2"></i> Ver todas las sucursales
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Equipo -->
+    <section class="py-5 bg-white" id="equipo">
+        <div class="container">
+            <div class="text-center mb-5">
+                <h2 class="fw-bold">Nuestro Equipo</h2>
+                <p class="text-muted">Profesionales dedicados a brindarte la mejor experiencia</p>
+            </div>
+            
+            <ul class="nav nav-pills mb-4 justify-content-center" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-all-tab" data-bs-toggle="pill" data-bs-target="#pills-all" type="button">Todos</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-sales-tab" data-bs-toggle="pill" data-bs-target="#pills-sales" type="button">Ventas</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-tech-tab" data-bs-toggle="pill" data-bs-target="#pills-tech" type="button">Técnicos</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-management-tab" data-bs-toggle="pill" data-bs-target="#pills-management" type="button">Gerencia</button>
+                </li>
+            </ul>
+            
+            <div class="tab-content" id="pills-tabContent">
+                <div class="tab-pane fade show active" id="pills-all" role="tabpanel">
+                    <div class="row g-4">
+                        <!-- Miembro 1 -->
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card employee-card h-100">
+                                <div class="position-relative">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" class="card-img-top" alt="María González">
+                                    <span class="badge bg-primary role-badge">Ventas</span>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title mb-1">María González</h5>
+                                    <p class="card-text text-muted small">Asesora de Ventas</p>
+                                    <p class="card-text small">Especialista en equipos para diseño y productividad.</p>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Miembro 2 -->
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card employee-card h-100">
+                                <div class="position-relative">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" class="card-img-top" alt="Carlos Mendoza">
+                                    <span class="badge bg-success role-badge">Técnico</span>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title mb-1">Carlos Mendoza</h5>
+                                    <p class="card-text text-muted small">Técnico Certificado</p>
+                                    <p class="card-text small">Experto en reparación de hardware y recuperación de datos.</p>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Miembro 3 -->
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card employee-card h-100">
+                                <div class="position-relative">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" class="card-img-top" alt="Laura Sánchez">
+                                    <span class="badge bg-warning text-dark role-badge">Gerencia</span>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title mb-1">Laura Sánchez</h5>
+                                    <p class="card-text text-muted small">Gerente Regional</p>
+                                    <p class="card-text small">Responsable de operaciones y experiencia del cliente.</p>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- Miembro 4 -->
+                        <div class="col-md-6 col-lg-3">
+                            <div class="card employee-card h-100">
+                                <div class="position-relative">
+                                    <img src="https://randomuser.me/api/portraits/men/22.jpg" class="card-img-top" alt="Juan Pérez">
+                                    <span class="badge bg-primary role-badge">Ventas</span>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title mb-1">Juan Pérez</h5>
+                                    <p class="card-text text-muted small">Especialista Empresarial</p>
+                                    <p class="card-text small">Soluciones tecnológicas para empresas y negocios.</p>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="pills-sales" role="tabpanel">
+                    <div class="row g-4">
+                        <!-- Solo muestra miembros de ventas -->
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card employee-card h-100">
+                                <div class="position-relative">
+                                    <img src="https://randomuser.me/api/portraits/women/32.jpg" class="card-img-top" alt="María González">
+                                    <span class="badge bg-primary role-badge">Ventas</span>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title mb-1">María González</h5>
+                                    <p class="card-text text-muted small">Asesora de Ventas</p>
+                                    <p class="card-text small">Especialista en equipos para diseño y productividad.</p>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6 col-lg-4">
+                            <div class="card employee-card h-100">
+                                <div class="position-relative">
+                                    <img src="https://randomuser.me/api/portraits/men/22.jpg" class="card-img-top" alt="Juan Pérez">
+                                    <span class="badge bg-primary role-badge">Ventas</span>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title mb-1">Juan Pérez</h5>
+                                    <p class="card-text text-muted small">Especialista Empresarial</p>
+                                    <p class="card-text small">Soluciones tecnológicas para empresas y negocios.</p>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="pills-tech" role="tabpanel">
+                    <div class="row g-4">
+                        <!-- Solo muestra técnicos -->
+                        <div class="col-md-6 col-lg-6">
+                            <div class="card employee-card h-100">
+                                <div class="position-relative">
+                                    <img src="https://randomuser.me/api/portraits/men/45.jpg" class="card-img-top" alt="Carlos Mendoza">
+                                    <span class="badge bg-success role-badge">Técnico</span>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title mb-1">Carlos Mendoza</h5>
+                                    <p class="card-text text-muted small">Técnico Certificado</p>
+                                    <p class="card-text small">Experto en reparación de hardware y recuperación de datos.</p>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane fade" id="pills-management" role="tabpanel">
+                    <div class="row g-4">
+                        <!-- Solo muestra gerencia -->
+                        <div class="col-md-6 col-lg-6">
+                            <div class="card employee-card h-100">
+                                <div class="position-relative">
+                                    <img src="https://randomuser.me/api/portraits/women/68.jpg" class="card-img-top" alt="Laura Sánchez">
+                                    <span class="badge bg-warning text-dark role-badge">Gerencia</span>
+                                </div>
+                                <div class="card-body text-center">
+                                    <h5 class="card-title mb-1">Laura Sánchez</h5>
+                                    <p class="card-text text-muted small">Gerente Regional</p>
+                                    <p class="card-text small">Responsable de operaciones y experiencia del cliente.</p>
+                                    <div class="d-flex justify-content-center gap-2">
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-envelope"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-outline-primary">
+                                            <i class="fas fa-calendar-alt"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Contacto -->
+    <section class="py-5 bg-light" id="contacto">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <h2 class="fw-bold mb-4">Contáctanos</h2>
+                    <p class="mb-4">¿Tienes preguntas sobre nuestros productos o servicios? Nuestro equipo está listo para ayudarte.</p>
+                    
+                    <div class="mb-4">
+                        <div class="d-flex align-items-start mb-3">
+                            <i class="fas fa-phone-alt me-3 mt-1 text-primary"></i>
+                            <div>
+                                <h5 class="mb-1">Teléfono</h5>
+                                <p class="mb-0">(01) 234-5678</p>
+                                <small class="text-muted">Lunes a Viernes de 9AM a 6PM</small>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-start mb-3">
+                            <i class="fas fa-envelope me-3 mt-1 text-primary"></i>
+                            <div>
+                                <h5 class="mb-1">Correo Electrónico</h5>
+                                <p class="mb-0">info@tecnoshop.com</p>
+                                <small class="text-muted">Respuesta en menos de 24 horas</small>
+                            </div>
+                        </div>
+                        
+                        <div class="d-flex align-items-start">
+                            <i class="fas fa-headset me-3 mt-1 text-primary"></i>
+                            <div>
+                                <h5 class="mb-1">Soporte Técnico</h5>
+                                <p class="mb-0">soporte@tecnoshop.com</p>
+                                <small class="text-muted">Asistencia especializada para tus productos</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h5 class="mb-3">Síguenos en redes sociales</h5>
+                    <div class="d-flex">
+                        <a href="#" class="btn btn-outline-primary me-2"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="btn btn-outline-primary me-2"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="btn btn-outline-primary me-2"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="btn btn-outline-primary"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-6 mt-4 mt-lg-0">
+                    <div class="card shadow-sm">
+                        <div class="card-body">
+                            <h5 class="card-title mb-4">Envía un mensaje</h5>
+                            <form>
+                                <div class="mb-3">
+                                    <label for="nombre" class="form-label">Nombre completo</label>
+                                    <input type="text" class="form-control" id="nombre" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Correo electrónico</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="telefono" class="form-label">Teléfono</label>
+                                    <input type="tel" class="form-control" id="telefono">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="asunto" class="form-label">Asunto</label>
+                                    <select class="form-select" id="asunto">
+                                        <option selected disabled>Selecciona un asunto</option>
+                                        <option>Consulta sobre producto</option>
+                                        <option>Soporte técnico</option>
+                                        <option>Ventas corporativas</option>
+                                        <option>Reclamos</option>
+                                        <option>Otro</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="mensaje" class="form-label">Mensaje</label>
+                                    <textarea class="form-control" id="mensaje" rows="4" required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-paper-plane me-2"></i> Enviar mensaje
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pie de página -->
+    <footer class="py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4 mb-4 mb-lg-0">
+                    <h4 class="text-white mb-4">
+                        <i class="fas fa-laptop-code me-2"></i>TecnoShop
+                    </h4>
+                    <p class="text-white-50">Especialistas en tecnología y computación con más de 15 años de experiencia en el mercado.</p>
+                    <div class="mt-4">
+                        <a href="#" class="social-icon"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-icon"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Productos</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50">Procesadores</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Tarjetas Gráficas</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Monitores</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Teclados y Mouse</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Laptops</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                    <h5 class="text-white mb-4">Servicios</h5>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-white-50">Reparación</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Mantenimiento</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Consultoría</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Soporte</a></li>
+                        <li class="mb-2"><a href="#" class="text-white-50">Garantías</a></li>
+                    </ul>
+                </div>
+                
+                <div class="col-lg-4 col-md-12">
+                    <h5 class="text-white mb-4">Boletín informativo</h5>
+                    <p class="text-white-50 mb-4">Suscríbete para recibir ofertas exclusivas y novedades tecnológicas.</p>
+                    <form class="mb-3">
+                        <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Tu correo electrónico" required>
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                    </form>
+                    <p class="text-white-50 small mb-0">
+                        <i class="fas fa-lock me-1"></i> Tu información está segura con nosotros.
+                    </p>
+                </div>
+            </div>
+            
+            <hr class="my-4 bg-light">
+            
+            <div class="row">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="text-white-50 small mb-0">
+                        &copy; 2023 TecnoShop. Todos los derechos reservados.
+                    </p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <ul class="list-inline small mb-0">
+                        <li class="list-inline-item"><a href="#" class="text-white-50">Términos y condiciones</a></li>
+                        <li class="list-inline-item"><span class="text-white-50 mx-1">•</span></li>
+                        <li class="list-inline-item"><a href="#" class="text-white-50">Política de privacidad</a></li>
+                        <li class="list-inline-item"><span class="text-white-50 mx-1">•</span></li>
+                        <li class="list-inline-item"><a href="#" class="text-white-50">Mapa del sitio</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Ejemplo de interacción con el carrito
+        document.querySelectorAll('.btn-outline-primary').forEach(btn => {
+            if(btn.innerHTML.includes('fa-cart-plus')) {
+                btn.addEventListener('click', function() {
+                    const product = this.closest('.product-card').querySelector('.card-title').textContent;
+                    const originalText = this.innerHTML;
+                    this.innerHTML = '<i class="fas fa-check me-1"></i> Añadido';
+                    this.classList.remove('btn-outline-primary');
+                    this.classList.add('btn-success');
+                    
+                    // Mostrar notificación
+                    const alert = document.createElement('div');
+                    alert.className = 'alert alert-success position-fixed bottom-0 end-0 m-3';
+                    alert.style.zIndex = '1000';
+                    alert.innerHTML = `<i class="fas fa-check-circle me-2"></i> ${product} añadido al carrito`;
+                    document.body.appendChild(alert);
+                    
+                    // Eliminar después de 3 segundos
+                    setTimeout(() => {
+                        alert.remove();
+                    }, 3000);
+                    
+                    // Restaurar botón después de 2 segundos
+                    setTimeout(() => {
+                        this.innerHTML = originalText;
+                        this.classList.remove('btn-success');
+                        this.classList.add('btn-outline-primary');
+                    }, 2000);
+                });
+            }
+        });
+
+        // Cambiar clase activa en pestañas de equipo
+        document.querySelectorAll('.nav-pills .nav-link').forEach(link => {
+            link.addEventListener('click', function() {
+                document.querySelectorAll('.nav-pills .nav-link').forEach(l => l.classList.remove('active'));
+                this.classList.add('active');
+            });
+        });
+    </script>
+</body>
+</html>
